@@ -1,0 +1,135 @@
+
+
+.lol{
+    color: red;
+}
+
+.left_box{
+    height: 715px;
+    border-right: 2px solid gray;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    width: 20%;
+}
+
+.left{
+    height:500px;
+    width: 300px;
+    /* border: 2px solid gray; */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.logo{
+    color: #54B435;
+}
+
+.content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 180px;
+    /* border: 2px solid green; */
+    justify-content: space-between;
+    cursor: pointer;
+    color: gray;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: 'Lato', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.content:hover{
+    border-left: 1px solid #54B435;
+    color: #54B435;
+}
+
+.right{
+    width: 80%;
+}
+
+.container{
+    display: flex;
+}
+
+.input_text{
+    width: 300px;
+    height: 40px;
+    border: 2px solid gray;
+    border-left: none;
+    background-color: #F5F5F5;
+}
+
+.search{
+    margin: 12px;
+    display: flex;
+}
+
+.iconSearch{
+    border: 2px solid gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    border-right: none;
+    background-color: #F5F5F5;
+}
+
+.dashboard{
+    margin: 12px;
+    margin-top: 28px;
+    font-family: 'Lato', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.cards_keeper{
+    width: 100%;
+    height: 100px;
+    /* border: 2px solid gray; */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.card_img{
+    height: 80px;
+    width: 80px;
+}
+.card_content_1{
+    display: flex;
+    justify-content: space-evenly;
+    border: 2px solid gray;
+    width: 300px;
+    height: 80px;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.left_of_card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-weight: bold;
+}
+
+.card{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.card_text{
+    font-family: 'Lato', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+    color: gray;
+}
+.card_number{
+    font-family: 'Lato', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+}

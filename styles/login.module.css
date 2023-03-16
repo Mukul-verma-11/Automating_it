@@ -1,0 +1,49 @@
+
+.container{
+
+    height: 720px;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+    border: 2px solid black;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(255,191,169,1) 41%, rgba(255,183,0,1) 100%);
+}
+
+.logo{
+    height: 200px;
+}
+
+
+.box{
+    border: 2px solid black;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.input{
+    height: 30px;
+    width: 220px;
+    border: none;
+    color: black;
+    background: rgb(255,172,172);
+    background: linear-gradient(90deg, rgba(255,172,172,1) 0%, rgba(255,191,169,1) 41%, rgba(255,235,180,1) 100%);
+}
+
+.submit{
+    width: 230px;
+    margin: 20px;
+    height: 30px;
+    background-color: black;
+    color: white;
+    letter-spacing: 3px;
+}
+
+.login{
+    margin: 20px;
+}
