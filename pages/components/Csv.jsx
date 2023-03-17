@@ -5,6 +5,8 @@ import { PrismaClient } from '@prisma/client';
 import axios from 'axios';
 import Attendance from './getAttendance';
 
+import styles from '../../styles/csvAttendance.module.css'
+
 
 
 
@@ -17,7 +19,6 @@ const CsvReader =  () => {
 
     console.log('clicked');
     for(let att_data of attendance){
-
       try {
         const response = await axios.post('../api/addAttendanceCsv', att_data);
         console.log(attendance,'csv att');
@@ -43,11 +44,19 @@ const CsvReader =  () => {
     setAttendance(data)
   };
 
+  // const handleSubmit = (e) => {
+  //   e.preventDefault()
+  // }
+
   return (
-    <div>
+    <div className={styles.container} >
       <h1>CSV Reader</h1>
-      <input type="file" accept=".csv" required onChange={handleFileChange} />
-      <button onClick={() => sendData()}  >Insert data</button>
+      
+
+      {/* <form action="" onSubmit={handleSubmit} className={styles.form}  > */}
+      <input className={styles.input} type="file" accept=".csv" required onChange={handleFileChange} />
+      <button  className={styles.btn} onClick={() => sendData()}  >INSERT DATA</button>
+      {/* </form> */}
 
       {/* {loading === 1 ? <Attendance/> : 'loading'} */}
     </div>
