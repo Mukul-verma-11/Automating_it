@@ -11,6 +11,25 @@ datasource db {
 }
 
 
+model stude{
+  id Int @id @default(autoincrement())
+  registration_number String 
+  semester String 
+  name String 
+  year String 
+  calculus String 
+  engineering_physics String 
+  engineering_mechanics String 
+  basic_civil_engineering String 
+  soft_skill_development String 
+  civil_engineering_workshop String 
+  mechanical_engineering_workshop String 
+  language_lab String 
+  nature_conservation_activities String 
+  basic_mechanical_engineering String 
+  attendance String
+}
+
 model sem_1_attendance{
   id Int @id @default(autoincrement())
   registration_number String 

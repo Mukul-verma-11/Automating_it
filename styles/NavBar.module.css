@@ -30,6 +30,7 @@
         border: none;
         font-family: 'Lato', sans-serif;
         font-family: 'Ubuntu', sans-serif;
+        letter-spacing: 3px;
     
     }
     
@@ -46,4 +47,7 @@
         margin: 30px;
         color: #2D033B;
         cursor: pointer;
+        font-weight: BOLD;
+        font-size: 20px;
+        margin-right: 50px;
     }

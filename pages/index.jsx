@@ -3,7 +3,7 @@ import Csv from './components/Csv'
 import Attendance from './components/getAttendance'
 import Admin from './components/Admin'
 import NavBar from './components/NavBar';
-import StudentLogin from './studentLogin';
+import StudentLogin from './student-login';
 
 
 export default function Home() {

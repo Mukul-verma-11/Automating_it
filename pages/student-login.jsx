@@ -6,32 +6,32 @@ import axios from 'axios'
 import { useRouter } from 'next/router'
 
 
-const AdminLogin = () => {
+const StudentLogin = () => {
 
-const [userID,setUserID] = useState('')
+const [regNo,setRegNo] = useState('')
 const [password,setPassword] = useState('')
 const router = useRouter()
 
-const handleUserId = (e)=> {
-  setUserID(e.currentTarget.value)
+const handleReg = (e)=> {
+    setRegNo(e.currentTarget.value)
 }
 const handlePass = (e)=> {
   setPassword(e.currentTarget.value)
 }
 
 const handleSubmitbtn = async () => {
-  const response = await axios.get('./api/adminLoginCredentials')
+  const response = await axios.get('./api/studentLoginCredentials')
     const login_data = response.data 
     console.log(login_data);
 
 
     for (let data of login_data){
-      console.log(data.userId == userID);
-      if(data.userId == userID){
+      console.log(data.registration_number == regNo);
+      if(data.registration_number == regNo){
         if (data.password == password){
           console.log('correct credentials');
-          // setCookie('userID', userID);
-          router.push('/admin')
+          setCookie('registration_number', regNo);
+          router.push('/student-profile')
           break
         }
         else{
@@ -42,6 +42,10 @@ const handleSubmitbtn = async () => {
         console.log('wrong credentials');
       }
     }
+
+    
+
+
 
     
 }
@@ -61,9 +65,8 @@ const handleSubmit = (e) => {
       <img className={styles.logo} src='/login_logo.png' alt="" />
 
       <form action="" className={styles.box}  >
-      <h1 className={styles.login} >A D M I N</h1>
-      {/* <h1 className={styles.login} >L O G I N</h1> */}
-      <input className={styles.input} type='text' onChange={handleUserId} value={userID} required  placeholder='Enter UserId' /> <br />
+      <h1 className={styles.login} >L O G I N</h1>
+      <input className={styles.input} type='text' onChange={handleReg} value={regNo} required  placeholder='Enter Registration Number' /> <br />
       <input className={styles.input} type='password' onChange={handlePass} value={password} required  placeholder='Password' />
       <button className={styles.submit} type='submit' onClick={handleSubmitbtn} >SUBMIT</button>
       </form>
@@ -78,4 +81,4 @@ const handleSubmit = (e) => {
   )
 }
 
-export default AdminLogin
+export default StudentLogin

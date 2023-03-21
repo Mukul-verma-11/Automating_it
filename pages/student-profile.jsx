@@ -1,10 +1,12 @@
 import NavBar from './components/NavBar';
+import ProfileForm from './components/ProfileForm'
 
 export default function Student({hasCookie}) {
 
   return (
     <>
         <NavBar/>
+        <ProfileForm/>
     </>
   )
 }

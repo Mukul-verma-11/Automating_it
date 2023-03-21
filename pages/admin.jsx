@@ -12,3 +12,23 @@ const admin = () => {
 }
 
 export default admin
+
+export async function getServerSideProps(context) {
+  const cookie = context.req.headers.cookie;
+  if(!cookie){
+    return {
+      redirect: {
+        destination: '/admin-login',
+        permanent: false,
+      },
+    };
+
+  }
+
+  return{
+    props:{
+
+    }
+  }
+  
+}
