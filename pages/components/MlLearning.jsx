@@ -1,11 +1,24 @@
 import { NextPage } from "next";
  import * as tf from "@tensorflow/tfjs";
- import data from "../sem_1.json";
+ import sem_1 from "../sem_1.json";
+ import sem_2 from "../sem_2.json";
+ import sem_3 from "../sem_3.json";
+ import sem_4 from "../sem_4.json";
  import { useEffect, useState } from "react";
+ import styles from '../../styles/admin.module.css'
  
+ const SEMESTER = {
+  SEM_1 : sem_1,
+  SEM_2 : sem_2,
+  SEM_3 : sem_3,
+  SEM_4 : sem_4
+ }
+
  const MLearning = ({setDataset,setPDataset}) => {
 
-   const [subject, setSubject] = useState(data.calculus);
+  const [semester,setSemester] = useState(SEMESTER.SEM_1)
+
+   const [subject, setSubject] = useState(null);
    const createModal = () => {
      const modal = tf.sequential();
  
@@ -54,7 +67,7 @@ import { NextPage } from "next";
      });
    };
  
-   const subjects = Object.keys(data);
+   const subjects = Object.keys(semester);
  
    const trainModel = async (
      model,
@@ -110,15 +123,34 @@ import { NextPage } from "next";
        runModal(subject);
      }
    }, [subject]);
+
+   
+
    return (
      <div className="flex flex-row w-full justify-center">
-       <select onChange={(e) => setSubject(data[e.target.value])}>
+
+      <h2> ML MODEL FOR MARKS BASED ON ATTENDANCE </h2>
+      
+      <div className={styles.filterBtns} >
+
+      <select className={styles.sem} onChange={e => setSemester(SEMESTER[e.target.value])} >
+        {
+          Object.keys(SEMESTER).map(key => (
+            <option  key={key} value={key} >
+              {key}
+            </option>
+          ) )
+        }
+      </select>
+
+       <select className={styles.sem} onChange={(e) => setSubject(semester[e.target.value])}>
          {subjects.map((sub) => (
            <option value={sub} key={sub}>
              {sub}
            </option>
          ))}
        </select>
+    </  div>
 
      </div>
    );

@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react';
 import BarGraph2 from './components/BarGraph2';
 import BarGraph4 from './components/BarGraph4';
 import BarGraph3 from './components/BarGraph3';
-import { LineGraph } from './components/LineGraph';
+// import { LineGraph } from './components/LineGraph';
 import MLearning from './components/MlLearning';
 import { HorizontalGridLines, MarkSeries, VerticalGridLines, XAxis, XYPlot, YAxis } from 'react-vis'
 
@@ -22,8 +22,9 @@ const admin = () => {
   const [predictionDataset,setPDataset] = useState([])
 
   return (
-    <div className={styles.box} >
+    <div >
       <AdminNavBar/>
+    <div className={styles.box} >
       {/* <LineGraph/> */}
       
       <div className={styles.container} >
@@ -44,8 +45,10 @@ const admin = () => {
 
       </div>
 
-      <div>
+      <div className={styles.right_graph} > 
         <MLearning setDataset = {setDataset} setPDataset={setPDataset}  />
+
+        <div className={styles.grp} >
         <XYPlot width={400} height={400} animation
         ><XAxis /><YAxis />
         <HorizontalGridLines />
@@ -56,7 +59,7 @@ const admin = () => {
         </XYPlot>
         </div>
 
-        <div>
+        <div className={styles.grp} >
         <XYPlot width={400} height={400}  
         ><XAxis  /><YAxis />
         <HorizontalGridLines />
@@ -66,7 +69,11 @@ const admin = () => {
           opacity="0.6"/>
         </XYPlot>
         </div>
-            </div>
+        </div>
+
+        
+          </div>
+      </div>
   )
 }
 

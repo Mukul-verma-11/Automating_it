@@ -55,3 +55,11 @@
     display:flex;
     justify-content: center;
 }
+
+.graphs{
+    display:flex;
+    justify-content:center;
+    flex-direction:column;
+    /* border:2px solid blue; */
+    align-items:center;
+}

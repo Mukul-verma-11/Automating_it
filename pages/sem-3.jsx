@@ -7,6 +7,7 @@ import { getCookies } from "cookies-next";
 import axios from "axios";
 import styles from ".././styles/admin_attendance.module.css";
 import sub_creds from "./credits.json";
+import { RadialChart } from 'react-vis';
 
 const Semester1 = () => {
   const [registration_number, setRegNum] = useState("");
@@ -15,6 +16,12 @@ const Semester1 = () => {
   const [semesterMarks, setSemesterMarks] = useState([]);
   const [allData, setAllData] = useState({});
   const [semGpa, setSemGpa] = useState(0);
+
+  
+  const [_attendance,set_attendance] = useState([])
+  const [_internalMarks,set_internalMarks] = useState([])
+  const [_semesterMarks,set_semesterMarks] = useState([])
+
 
   useEffect(() => {
     const cookies = getCookies();
@@ -54,6 +61,89 @@ const Semester1 = () => {
   console.log(attendance, "attendance");
   console.log(internalMarks, "internalMarks");
   console.log(semesterMarks, "semesterMarks");
+
+
+  
+  
+  useEffect(() => {
+    if(attendance){
+      const attend = {...attendance}
+      delete attend.id ;delete attend.name ; delete attend.year ; delete attend.registration_number ; delete attend.semester ; delete attend.attendance
+      console.log(attend,'******************88')
+
+      const total = Object.values(attend).reduce((acc,emm) => acc + Number(emm) , 0)
+      Object.keys(attend).forEach(key => {
+        attend[key] =( attend[key] / total ) * 100
+      })
+      
+      console.log(total,'total');
+      console.log(attend,'******************88')
+      // set_attendance(attend)
+
+      set_attendance(
+        Object.keys(attend).map((data) => {
+          return {
+            angle: attend[data],
+            label: data,
+            color: "#" + Math.floor(Math.random() * 16777215).toString(16),
+          };
+        })
+      );
+
+    }
+    if(internalMarks){
+      const attend = {...internalMarks}
+      delete attend.id ;delete attend.name ; delete attend.year ; delete attend.registration_number ; delete attend.semester ; delete attend.attendance
+      console.log(attend,'******************88')
+
+      const total = Object.values(attend).reduce((acc,emm) => acc + Number(emm) , 0)
+      Object.keys(attend).forEach(key => {
+        attend[key] =( attend[key] / total ) * 100
+      })
+      
+      console.log(total,'total');
+      console.log(attend,'******************88')
+      // set_internalMarks(attend)
+
+      set_internalMarks(
+        Object.keys(attend).map((data) => {
+          return {
+            angle: attend[data],
+            label: data,
+            color: "#" + Math.floor(Math.random() * 16777215).toString(16),
+          };
+        })
+      );
+
+    }
+    if(semesterMarks){
+      const attend = {...semesterMarks}
+      delete attend.id ;delete attend.name ; delete attend.year ; delete attend.registration_number ; delete attend.semester ; delete attend.attendance
+      console.log(attend,'******************88')
+
+      const total = Object.values(attend).reduce((acc,emm) => acc + Number(emm) , 0)
+      Object.keys(attend).forEach(key => {
+        attend[key] =( attend[key] / total ) * 100
+      })
+      
+      console.log(total,'total');
+      console.log(attend,'******************88')
+
+      set_semesterMarks(
+        Object.keys(attend).map((data) => {
+          return {
+            angle: attend[data],
+            label: data,
+            color: "#" + Math.floor(Math.random() * 16777215).toString(16),
+          };
+        })
+      );
+    }
+
+    
+
+
+  },[attendance,internalMarks,semesterMarks])
 
   const grading = {
     90: "10",
@@ -291,14 +381,65 @@ const Semester1 = () => {
         <h2 className={styles.h2}>CHARTS & GRAPHS</h2>
       </div>
 
-      <div className={styless.graph_btns}>
-        <button className={styless.skill_btn}>Mathematical Skills</button>
-        <button className={styless.skill_btn}>Technical Skills</button>
+      <div className={styless.graphs} >
+      <h2>ATTENDANCE CONTRIBUTION</h2>
+      <RadialChart
+            colorType="literal"
+            className="progress-chart"
+            innerRadius={0}
+            radius={300}
+            animation = {{}}
+            data={_attendance}
+            showLabels={true}
+            labelsStyle={{
+              fill: "Black",
+              dominantBaseline: "middle",
+              textAnchor: "middle",
+            }}
+            width={850}
+            height={850}
+      />
+      <div>
+        <h2>INTERNAL MARKS CONTRIBUTION</h2>
+      </div>
+      <RadialChart
+            colorType="literal"
+            className="progress-chart"
+            innerRadius={0}
+            radius={300}
+            data={_internalMarks}
+            showLabels={true}
+            labelsStyle={{
+              fill: "Black",
+              dominantBaseline: "middle",
+              textAnchor: "middle",
+            }}
+            width={850}
+            height={850}
+      />
+
+<div>
+        <h2>EXTERNAL MARKS CONTRIBUTION</h2>
+      </div>
+      <RadialChart
+            colorType="literal"
+            className="progress-chart"
+            innerRadius={0}
+            radius={300}
+            data={_semesterMarks}
+            showLabels={true}
+            labelsStyle={{
+              fill: "Black",
+              dominantBaseline: "middle",
+              textAnchor: "middle",
+            }}
+            width={850}
+            height={850}
+      />
       </div>
 
-      {/* <a href="http://127.0.0.1:5000/login">Login</a> */}
 
-      {/* <Graph/> */}
+      
     </div>
   );
 };

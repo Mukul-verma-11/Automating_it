@@ -18,7 +18,7 @@ const Semesters = (reg_num) => {
     setRegNum(reg_num)
 
     const res = axios.post('./api/getStudentAttendance',{'registration_number':reg_num})
-    .then(res => (setAttendance(res.data) , obj['ATTENDANCE'] = res.data))
+    .then(res => (setAttendance(res.data) , obj['ATTENDANCE'] = res.data,setName(res.data[0].name)))
     
 
     const internalMarks = axios.post('./api/getInternalMarks',{'registration_number':reg_num})
@@ -39,7 +39,7 @@ const Semesters = (reg_num) => {
   const [semesterMarks,setSemesterMarks] = useState([])
   const [allData,setAllData] = useState({})
   const [semGpa,setSemGpa] = useState({})
-
+  const [name,setName] = useState('')
   
 
     const grading = {
@@ -55,7 +55,7 @@ const Semesters = (reg_num) => {
     }
     const grade_key = [90,85,80,75,70,65,60,55,50]
   
-    // console.log(internalMarks,'*****************************************8');
+    console.log(internalMarks,'*****************************************8');
     // console.log(semesterMarks,'*****************************************8');
     let fail = false
     const subjectGrade = (sub_name,sem) => {
@@ -281,9 +281,9 @@ const Semesters = (reg_num) => {
 
   return (
     <div >
-          <NavBar/>
+          <NavBar reg_num = {registration_number} name={name} />
         <div className={styles.semesters_box} >
-        <h3>{registration_number}</h3>
+        <h3 style={{margin:'5px'}} >{registration_number}</h3>
         <h3 className={styles.h3} >CLICK ON ANY SEMESTER TO GET DETAILS</h3>
 
         <div className={styles.boxy}>

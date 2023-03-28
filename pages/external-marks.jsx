@@ -46,7 +46,7 @@ const attendanceAdmin = ({posts}) => {
     console.log(year,'year');
     const filters = {'semester':sem,'year':year}
 
-    const response = await axios.post('./api/getAttendanceTable',filters)
+    const response = await axios.post('./api/getSemesterMarks',filters)
     setFilterTable(response.data)
     console.log(response.data);
 
@@ -121,35 +121,18 @@ const attendanceAdmin = ({posts}) => {
     {show == 0 ? <Csv/> : ''}
       {/* <Csv /> */}
 
+    <button className={styles.btnCsv} onClick={handleBtn}  > <h2></h2> </button>
       
       <div className={styles.attendanceTable} >
-        <input className={styles.input} value={year} onChange={handleYear} type="text" name="" placeholder='Enter year' required />
-        <input className={styles.input} value={sem} onChange={handleSem} type="number" name="" min="1" max="8" placeholder='Enter Semester' required />
-        <button onClick={handleFilter} >FILTER</button>
-      </div>
+      <input className={styles.input} value={year} onChange={handleYear} type="text" name="" placeholder='Enter year' required />
+      <input className={styles.input} value={sem} onChange={handleSem} type="number" name="" min="1" max="8" placeholder='Enter Semester' required />
+      <button onClick={handleFilter} >FILTER</button>
+    </div>
 
 
 
 <div className={styles.sem_graph}>
 
-
-
-      <RadialChart
-          colorType="literal"
-          className="progress-chart"
-          innerRadius={0}
-          radius={100}
-          data={attendanceCount}
-          showLabels={true}
-          labelsStyle={{
-            fill: "Black",
-            dominantBaseline:"middle",
-            textAnchor:"middle"
-          }}
-          width={250}
-          height={250} />
-
-          <br />
 
 
 </div>
@@ -175,7 +158,7 @@ const attendanceAdmin = ({posts}) => {
           <th className={styles.th}>Registration Number</th>
           <th className={styles.th} >Name</th>
           <th className={styles.th}>Year</th>
-          <th className={styles.th} onClick={sortAttendance} >Attendance</th>
+          <th className={styles.th} onClick={sortAttendance} ></th>
         </tr>
       </thead>
       <tbody>

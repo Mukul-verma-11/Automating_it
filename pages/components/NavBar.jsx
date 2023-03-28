@@ -3,7 +3,7 @@ import styles from '../../styles/NavBar.module.css'
 import { deleteCookie } from 'cookies-next';
 import { useRouter } from 'next/router'
 
-const NavBar = () => {
+const NavBar = ({name,reg_num}) => {
 
 
   const router = useRouter()
@@ -22,6 +22,7 @@ const NavBar = () => {
 
         <div className={styles.right_content} >
               <div className='contents' >
+                  <span   className={styles.content} >{name} </span>
                   <Link href='student-profile'  className={styles.content} >PROFILE</Link>
                   <Link href='student-semesters'  className={styles.content} >SEMESTERS</Link>
               </div>
