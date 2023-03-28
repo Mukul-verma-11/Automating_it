@@ -1,4 +1,3 @@
-
 .attendanceTable{
     border: 2px solid black;
     /* margin-top: 2px; */
@@ -7,6 +6,8 @@
     justify-content: space-evenly;
     align-items: center;
     border-top: none;
+    /* height: 200px; */
+    /* width: 100%; */
 }
 
 .input{
@@ -17,12 +18,20 @@
     height: 30px;
     width: 150px;
 }
-
+.filterBtn{
+  width:170px;
+  border: none;
+  height: 40px;
+  font-size: 20px;
+  letter-spacing: 2px;
+  background-color: black;
+  color:white;
+}
 .table {
-    margin: 10px;
+    margin: 50px;
     font-family: arial, sans-serif;
     border-collapse: collapse;
-    width: 100%;
+    /* width: 100%; */
     display: flex;
     flex-direction: column;
     /* border: 2px solid black; */
@@ -31,11 +40,13 @@
   }
 
   .td,.th {
-    border: 1px solid #dddddd;
+    border: 2px solid #2D033B;
     text-align: center;
     padding: 8px;
     margin: 10px;
     width: 200px;
+    font-weight: bold;
+    font-size: 18px;
   }
 .tr:nth-child(even) {
     background-color: #dddddd;
@@ -45,14 +56,14 @@
 
   .btnCsv{
     width: 100%;
-    height: 40px;
+    height: 60px;
     background: black;
     color: white;
     
   }
 
   .sem_graph{
-    width: 100%;
+    /* width: 100%; */
     /* border: 2px solid black; */
     display: flex;
     justify-content: center;
@@ -60,10 +71,71 @@
   }
 
   .filter_attendance{
-    margin-bottom: 50px;
-    height:60px;
+    /* margin-bottom: 50px; */
+    height:200px;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     align-items: center;
+    border: 2px solid black;
+  }
+
+  .container{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    /* border: 3px solid tomato; */
+  }
+  
+  .att_filter{
+    /* border: 2px solid black; */
+    /* border: 2px solid blueviolet; */
+    display: flex;
+    height: 60px;
+  }
+
+  .att_details,.condo_details{
+    width:50% ;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background-color: black;
+    /* border: 1px solid white; */
+    letter-spacing: 2px;
+    cursor: pointer;
+  }
+/* 
+  .table_contents{
+    border: 4px solid pink;
+  } */
+  
+  .graph_filter{
+    border-bottom: 2px solid gray;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 400px;
+  }
+
+  .input{
+    font-size: 20px;
+  }
+
+  .searchBar{
+    margin-top: 10px;
+    margin-bottom: -20px;
+    /* border: 2px solid blueviolet; */
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .searchInput{
+    width: 40%;
+    height: 30px;
+    border: 3px solid blueviolet;
+    font-size: 20px;
+    border-radius: 20px;
+    padding: 8px;
   }

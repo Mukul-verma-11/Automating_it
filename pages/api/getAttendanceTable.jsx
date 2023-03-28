@@ -16,16 +16,28 @@ export default async function handler(req, res) {
       const table = await prisma.sem_1_attendance.findMany({ where: { year } });
       return res.status(201).json(table);
     }
-    if (semester === '2') {
+    else if (semester === '2') {
       const table = await prisma.sem_2_attendance.findMany({ where: { year } });
       return res.status(201).json(table);
     }
-    if (semester === '3') {
+    else if (semester === '3') {
       const table = await prisma.sem_3_attendance.findMany({ where: { year } });
       return res.status(201).json(table);
     }
-    if (semester === '4') {
+    else if (semester === '4') {
       const table = await prisma.sem_4_attendance.findMany({ where: { year } });
+      return res.status(201).json(table);
+    }
+    else if (semester === '5') {
+      const table = await prisma.sem_5_attendance.findMany({ where: { year } });
+      return res.status(201).json(table);
+    }
+    else if (semester === '6') {
+      const table = await prisma.sem_6_attendance.findMany({ where: { year } });
+      return res.status(201).json(table);
+    }
+    else if (semester === '7') {
+      const table = await prisma.sem_7_attendance.findMany({ where: { year } });
       return res.status(201).json(table);
     }
 

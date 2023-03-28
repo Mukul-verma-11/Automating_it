@@ -9,7 +9,7 @@
 }
 
 .sem_card{
-    border: 2px solid gray;
+    border: 3px solid gray;
     width: 400px;
     margin: 5px;
     text-decoration: none;
@@ -19,7 +19,6 @@
     justify-content:space-around ;
     padding: 0;
     align-items: center;
-
     flex-direction: column;
     
 }
@@ -42,11 +41,12 @@
     align-items: center;
     border-bottom: 1px solid gray;
     width: 100%;
-
-
+    color: black;
+    
 }
 
 .sem_detail{
+    color: black;
     display: flex;
     height: 175px;
     flex-direction: column;
@@ -56,6 +56,7 @@
     /* height: 120px; */
     padding: 5px;
     width: 90%;
+    /* background-color: #FFACAC; */
     align-items: center;
 }
 

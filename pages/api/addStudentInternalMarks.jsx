@@ -23,21 +23,21 @@ export default async function handler(req, res) {
     const language_lab = String(data.language_lab)
     const nature_conservation_activities = String(data.nature_conservation_activities)
     const basic_mechanical_engineering = String(data.basic_mechanical_engineering)
-    const attendance = String(
-    Math.round((Number(data.calculus) + 
-    Number(data.engineering_physics) +
-    Number(data.engineering_mechanics) + 
-    Number(data.basic_civil_engineering) + 
-    Number(data.soft_skill_development)+
-    Number(data.civil_engineering_workshop)+
-    Number(data.mechanical_engineering_workshop)+
-    Number(data.language_lab)+
-    Number(data.nature_conservation_activities)+
-    Number(data.basic_mechanical_engineering))/10)
-    )
+    // const attendance = String(
+    // Math.round((Number(data.calculus) + 
+    // Number(data.engineering_physics) +
+    // Number(data.engineering_mechanics) + 
+    // Number(data.basic_civil_engineering) + 
+    // Number(data.soft_skill_development)+
+    // Number(data.civil_engineering_workshop)+
+    // Number(data.mechanical_engineering_workshop)+
+    // Number(data.language_lab)+
+    // Number(data.nature_conservation_activities)+
+    // Number(data.basic_mechanical_engineering))/10)
+    // )
 
     try {
-      const newUser = await prisma.sem_1_attendance.create({
+      const internal_1_marks = await prisma.sem_1_internal_marks.create({
         data: {
           registration_number,
           year,
@@ -52,13 +52,12 @@ export default async function handler(req, res) {
           mechanical_engineering_workshop, 
           language_lab,  
           nature_conservation_activities,  
-          attendance,  
           basic_mechanical_engineering,  
         },
       });
-      res.status(201).json(newUser);
+      res.status(201).json(internal_1_marks);
     } catch (error) {
-      console.error(data);
+      console.error(data,'error in data entering');
       res.status(500).json({ error: 'Unable to create user' });
     } 
 
@@ -73,19 +72,19 @@ export default async function handler(req, res) {
     const environmental_studies = String(data.environmental_studies)
     const electrical_engineering_workshop = String(data.electrical_engineering_workshop)
     const computer_programming_laboratory = String(data.computer_programming_laboratory)
-    const attendance = String(
-    Math.round( (Number(computer_programming) + 
-    Number(environmental_studies) + 
-    Number(engineering_chemistry) +
-    Number(engineering_graphics) + 
-    Number(basic_electrical_engineering) + 
-    Number(basic_electronics_engineering)+
-    Number(electrical_engineering_workshop)+
-    Number(computer_programming_laboratory))/8)
-    )
+    // const attendance = String(
+    // Math.round( (Number(computer_programming) + 
+    // Number(environmental_studies) + 
+    // Number(engineering_chemistry) +
+    // Number(engineering_graphics) + 
+    // Number(basic_electrical_engineering) + 
+    // Number(basic_electronics_engineering)+
+    // Number(electrical_engineering_workshop)+
+    // Number(computer_programming_laboratory))/8)
+    // )
 
     try {
-      const newUser_sem_2 = await prisma.sem_2_attendance.create({
+      const internal_2_marks = await prisma.sem_2_internal_marks.create({
         data: {
           registration_number,
           year,
@@ -99,10 +98,9 @@ export default async function handler(req, res) {
           basic_electronics_engineering, 
           electrical_engineering_workshop, 
           computer_programming_laboratory,
-          attendance 
         },
       });
-      res.status(201).json(newUser_sem_2);
+      res.status(201).json(internal_2_marks);
     } catch (error) {
       console.error(error);
       res.status(500).json({ error: 'Unable to create user' });
@@ -119,19 +117,19 @@ export default async function handler(req, res) {
     const computer_organisation_and_architecture = String(data.computer_organisation_and_architecture)
     const hardware_design_laboratory = String(data.hardware_design_laboratory)
     const data_structure_laboratory_in_c = String(data.data_structure_laboratory_in_c)
-    const attendance = String(
-    Math.round((Number(linear_algebra_and_transform_techniques) + 
-    Number(descrete_computational_structures) + 
-    Number(digital_electronics) +
-    Number(database_management_system) + 
-    Number(data_structure_and_algorithm_in_c) + 
-    Number(computer_organisation_and_architecture)+
-    Number(hardware_design_laboratory)+
-    Number(data_structure_laboratory_in_c))/8)
-    )
+    // const attendance = String(
+    // Math.round((Number(linear_algebra_and_transform_techniques) + 
+    // Number(descrete_computational_structures) + 
+    // Number(digital_electronics) +
+    // Number(database_management_system) + 
+    // Number(data_structure_and_algorithm_in_c) + 
+    // Number(computer_organisation_and_architecture)+
+    // Number(hardware_design_laboratory)+
+    // Number(data_structure_laboratory_in_c))/8)
+    // )
 
     try {
-      const newUser_sem_3 = await prisma.sem_3_attendance.create({
+      const internal_3_marks = await prisma.sem_3_internal_marks.create({
         data: {
           registration_number,
           year,
@@ -145,10 +143,9 @@ export default async function handler(req, res) {
           computer_organisation_and_architecture, 
           hardware_design_laboratory, 
           data_structure_laboratory_in_c,
-          attendance 
         },
       });
-      res.status(201).json(newUser_sem_3);
+      res.status(201).json(internal_3_marks);
     } catch (error) {
       console.error(error);
       res.status(500).json({ error: 'Unable to create user' });
@@ -167,21 +164,21 @@ export default async function handler(req, res) {
     const uhv = String(data.uhv)
     const oops_lab_cpp = String(data.oops_lab_cpp)
     const mini_project_rdbms = String(data.mini_project_rdbms)
-    const attendance = String(
-    Math.round(
-    (Number(complex_variables_and_partial_differential_equation) + 
-    Number(data_communication_and_networking) + 
-    Number(operating_systems) +
-    Number(software_engineering) + 
-    Number(internet_programming) + 
-    Number(oops_cpp)+
-    Number(uhv)+
-    Number(oops_lab_cpp)+
-    Number(mini_project_rdbms))/9)
-    )
+    // const attendance = String(
+    // Math.round(
+    // (Number(complex_variables_and_partial_differential_equation) + 
+    // Number(data_communication_and_networking) + 
+    // Number(operating_systems) +
+    // Number(software_engineering) + 
+    // Number(internet_programming) + 
+    // Number(oops_cpp)+
+    // Number(uhv)+
+    // Number(oops_lab_cpp)+
+    // Number(mini_project_rdbms))/9)
+    // )
 
     try {
-      const newUser_sem_4 = await prisma.sem_4_attendance.create({
+      const internal_4_marks = await prisma.sem_4_internal_marks.create({
         data: {
           registration_number,
           year,
@@ -196,10 +193,9 @@ export default async function handler(req, res) {
           uhv, 
           oops_lab_cpp,
           mini_project_rdbms,
-          attendance 
         },
       });
-      res.status(201).json(newUser_sem_4);
+      res.status(201).json(internal_4_marks);
     } catch (error) {
       console.error(error);
       res.status(500).json({ error: 'Unable to create user' });
@@ -216,21 +212,21 @@ export default async function handler(req, res) {
     const professional_elective_1 = String(data.professional_elective_1)
     const software_system_lab = String(data.software_system_lab)
     const software_engineering_lab = String(data.software_engineering_lab)
-    const attendance = String(
-      Math.round(
-      ( 
-        Number(nsm) + 
-        Number(oomd) + 
-        Number(design_and_analysis_of_algorithms) +
-        Number(big_data_analysis) + 
-        Number(formal_languages_and_automata_theory) + 
-        Number(professional_elective_1)+
-        Number(software_system_lab)+
-        Number(software_engineering_lab))/8)
-    )
+    // const attendance = String(
+    //   Math.round(
+    //   ( 
+    //     Number(nsm) + 
+    //     Number(oomd) + 
+    //     Number(design_and_analysis_of_algorithms) +
+    //     Number(big_data_analysis) + 
+    //     Number(formal_languages_and_automata_theory) + 
+    //     Number(professional_elective_1)+
+    //     Number(software_system_lab)+
+    //     Number(software_engineering_lab))/8)
+    // )
 
     try {
-      const newUser_sem_5 = await prisma.sem_5_attendance.create({
+      const internal_5_marks = await prisma.sem_5_internal_marks.create({
         data: {
           registration_number,
           year,
@@ -244,10 +240,9 @@ export default async function handler(req, res) {
           professional_elective_1, 
           software_system_lab, 
           software_engineering_lab,
-          attendance 
         },
       });
-      res.status(201).json(newUser_sem_5);
+      res.status(201).json(internal_5_marks);
     } catch (error) {
       console.error(error);
       res.status(500).json({ error: 'Unable to create user' });
@@ -264,21 +259,21 @@ export default async function handler(req, res) {
     const professional_elective_2 = String(data.professional_elective_2)
     const cloud_and_data_analytics_lab = String(data.cloud_and_data_analytics_lab)
     const mini_project_android = String(data.mini_project_android)
-    const attendance = String(
-      Math.round(
-      ( 
-        Number(iot) + 
-        Number(complier_design) + 
-        Number(deep_learning) +
-        Number(cloud_computing) + 
-        Number(android_programming) + 
-        Number(professional_elective_2)+
-        Number(cloud_and_data_analytics_lab)+
-        Number(mini_project_android))/8)
-    )
+    // const attendance = String(
+    //   Math.round(
+    //   ( 
+    //     Number(iot) + 
+    //     Number(complier_design) + 
+    //     Number(deep_learning) +
+    //     Number(cloud_computing) + 
+    //     Number(android_programming) + 
+    //     Number(professional_elective_2)+
+    //     Number(cloud_and_data_analytics_lab)+
+    //     Number(mini_project_android))/8)
+    // )
 
     try {
-      const newUser_sem_6 = await prisma.sem_6_attendance.create({
+      const internal_6_marks = await prisma.sem_6_internal_marks.create({
         data: {
           registration_number,
           year,
@@ -292,10 +287,9 @@ export default async function handler(req, res) {
           professional_elective_2,
           cloud_and_data_analytics_lab, 
           mini_project_android, 
-          attendance 
         },
       });
-      res.status(201).json(newUser_sem_6);
+      res.status(201).json(internal_6_marks);
     } catch (error) {
       console.error(error);
       res.status(500).json({ error: 'Unable to create user' });
@@ -315,23 +309,23 @@ export default async function handler(req, res) {
     const entreprenuership_development = String(data.entreprenuership_development)
     const project_phase_1 = String(data.project_phase_1)
     const industrial_internship = String(data.industrial_internship)
-    const attendance = String(
-      Math.round(
-      ( 
-        Number(principles_of_management) + 
-        Number(data_security_and_cryptography) + 
-        Number(computer_graphics_and_visual_computing) +
-        Number(professional_elective_3) + 
-        Number(open_elective_1) + 
-        Number(computer_graphics_lab)+
-        Number(mini_project_multimedia)+
-        Number(project_phase_1)+
-        Number(industrial_internship)+
-        Number(entreprenuership_development))/10)
-    )
+    // const attendance = String(
+    //   Math.round(
+    //   ( 
+    //     Number(principles_of_management) + 
+    //     Number(data_security_and_cryptography) + 
+    //     Number(computer_graphics_and_visual_computing) +
+    //     Number(professional_elective_3) + 
+    //     Number(open_elective_1) + 
+    //     Number(computer_graphics_lab)+
+    //     Number(mini_project_multimedia)+
+    //     Number(project_phase_1)+
+    //     Number(industrial_internship)+
+    //     Number(entreprenuership_development))/10)
+    // )
 
     try {
-      const newUser_sem_7 = await prisma.sem_7_attendance.create({
+      const internal_7_marks = await prisma.sem_7_internal_marks.create({
         data: {
           registration_number,
           year,
@@ -347,10 +341,9 @@ export default async function handler(req, res) {
           project_phase_1,
           industrial_internship, 
           entreprenuership_development, 
-          attendance 
         },
       });
-      res.status(201).json(newUser_sem_7);
+      res.status(201).json(internal_7_marks);
     } catch (error) {
       console.error(error);
       res.status(500).json({ error: 'Unable to create user' });
@@ -366,20 +359,20 @@ export default async function handler(req, res) {
     const seminar = String(data.seminar)
     const project_phase_2 = String(data.project_phase_2)
     const comprehensive_viva_voce = String(data.comprehensive_viva_voce)
-    const attendance = String(
-      Math.round(
-      ( 
-        Number(financial_management_and_E_banking) + 
-        Number(professional_elective_4) + 
-        Number(professional_elective_5) +
-        Number(open_elective_2) + 
-        Number(seminar) + 
-        Number(project_phase_2)+
-        Number(comprehensive_viva_voce))/7)
-    )
+    // const attendance = String(
+    //   Math.round(
+    //   ( 
+    //     Number(financial_management_and_E_banking) + 
+    //     Number(professional_elective_4) + 
+    //     Number(professional_elective_5) +
+    //     Number(open_elective_2) + 
+    //     Number(seminar) + 
+    //     Number(project_phase_2)+
+    //     Number(comprehensive_viva_voce))/7)
+    // )
 
     try {
-      const newUser_sem_7 = await prisma.sem_7_attendance.create({
+      const internal_8_marks = await prisma.sem_8_internal_marks.create({
         data: {
           registration_number,
           year,
@@ -392,10 +385,9 @@ export default async function handler(req, res) {
           seminar,
           project_phase_2,
           comprehensive_viva_voce,
-          attendance 
         },
       });
-      res.status(201).json(newUser_sem_7);
+      res.status(201).json(internal_8_marks);
     } catch (error) {
       console.error(error);
       res.status(500).json({ error: 'Unable to create user' });
@@ -409,9 +401,6 @@ export default async function handler(req, res) {
     // Return a 405 Method Not Allowed error for other HTTP methods
     res.status(405).end();
   }
-
-
-
 
 
 }

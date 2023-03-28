@@ -9,3 +9,11 @@
 .h3{
     margin: 20px;
 }
+
+.boxy{
+    display: flex;
+    flex-wrap: wrap;
+    /* border: 2px solid tomato; */
+    justify-content: center;
+    width: 60%;
+}

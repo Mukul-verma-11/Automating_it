@@ -3,10 +3,10 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 400px;
+  height: 580px;
   border: 2px solid black;
   background: rgb(236,249,255);
-background: linear-gradient(90deg, rgba(236,249,255,1) 0%, rgba(248,234,216,1) 50%, rgba(236,249,255,1) 100%);
+  background: linear-gradient(90deg, rgba(236,249,255,1) 0%, rgba(248,234,216,1) 50%, rgba(236,249,255,1) 100%);
 }
 
 .form{

@@ -25,6 +25,8 @@ const AdminNavBar = () => {
               <div className='contents' >
                   <Link href='profile'  className={styles.content} >PROFILE</Link>
                   <Link href='/admin-attendance'  className={styles.content} > ATTENDANCE</Link>
+                  <Link href='/external-marks'  className={styles.content} > EXTERNAL</Link>
+                  <Link href='/internal-marks'  className={styles.content} > INTERNAL</Link>
                   <Link href='semesters'  className={styles.content} > PERFORMANCE</Link>
                   <Link href='semesters'  className={styles.content} style={{fontSize:'24px',fontWeight:'bold'}} > ADMIN</Link>
               </div>

@@ -1,0 +1,44 @@
+.semester{
+    width: 97%;
+}
+
+.th{
+    color: #3d1766;
+    width: 200px;
+}
+
+.table{
+    border: 2px solid black;
+    padding: 20px;
+}
+.tr{
+    margin: 100px;
+}
+
+.sem_table{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.detials{
+    display: flex;
+    justify-content: space-evenly;
+    font-weight: bold;
+}
+
+.skill_btn{
+    width: 400px;
+    height: 80px;
+    letter-spacing: 2px;
+    margin: 30px;
+    background-color: #3D1766;
+    color: whitesmoke;
+    cursor: pointer;
+    padding: 8px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+}

@@ -3,10 +3,10 @@ import { csv } from 'd3';
 import { csvParse } from 'd3-dsv';
 import { PrismaClient } from '@prisma/client';
 import axios from 'axios';
-import Attendance from './getAttendance';
+// import Attendance from './getAttendance';
 
 import styles from '../../styles/csvAttendance.module.css'
-import { toast, ToastContainer } from 'react-nextjs-toast'
+
 
 
 
@@ -17,11 +17,10 @@ const CsvReader =  () => {
 
   const sendData = async () => {
 
-   
     console.log('clicked');
     for(let att_data of attendance){
       try {
-        const response = await axios.post('../api/addAttendanceCsv', att_data);
+        const response = await axios.post('../api/addStudentInternalMarks', att_data);
         console.log(attendance,'csv att');
         if (response.status === 200) {
           const data = response.data;
@@ -31,8 +30,6 @@ const CsvReader =  () => {
         console.error(error);
       }
     }
-
-    toast.notify(`Data Added`)
 
     setLoading(1)
   
@@ -54,7 +51,6 @@ const CsvReader =  () => {
   return (
     <div className={styles.container} >
       <h1>CSV Reader</h1>
-      <ToastContainer />
       
 
       {/* <form action="" onSubmit={handleSubmit} className={styles.form}  > */}
