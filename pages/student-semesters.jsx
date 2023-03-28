@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import axios from 'axios';
 import sub_creds from './credits.json'
+import { Link } from 'next/link';
 
 const Semesters = (reg_num) => {
 
@@ -39,6 +40,8 @@ const Semesters = (reg_num) => {
   const [allData,setAllData] = useState({})
   const [semGpa,setSemGpa] = useState({})
 
+  
+
     const grading = {
       '90':'10',
       '85':'9.5',
@@ -52,10 +55,14 @@ const Semesters = (reg_num) => {
     }
     const grade_key = [90,85,80,75,70,65,60,55,50]
   
-  
+    // console.log(internalMarks,'*****************************************8');
+    // console.log(semesterMarks,'*****************************************8');
     let fail = false
     const subjectGrade = (sub_name,sem) => {
       let mark = (Number(internalMarks[sem][sub_name]) + Number(semesterMarks[sem][sub_name])) 
+      if (sem == 5){
+        console.log('marks =>>>>>>>>>',mark,Number(internalMarks[sem][sub_name]),Number(semesterMarks[sem][sub_name]));
+      }
       const credit = sub_creds[sub_name]
       if(credit < 3 ){
         mark = mark*2
@@ -98,7 +105,7 @@ const Semesters = (reg_num) => {
             fail = false
           }
           console.log(Gpa,'sem_1')
-          obj[`sem_${i+1}`] = Gpa
+          obj[`sem_${i+1}`] = Gpa.toFixed(2)
         }
     
         else  if(i == 1){
@@ -116,7 +123,7 @@ const Semesters = (reg_num) => {
             fail = false
           }
           console.log(Gpa,'sem_2')
-          obj[`sem_${i+1}`] = Gpa
+          obj[`sem_${i+1}`] = Gpa.toFixed(2)
         }
     
         else  if(i == 2){
@@ -134,15 +141,122 @@ const Semesters = (reg_num) => {
             fail = false
           }
           console.log(Gpa,'sem_3')
-          obj[`sem_${i+1}`] = Gpa
+          obj[`sem_${i+1}`] = Gpa.toFixed(2)
         }
+
+        else  if(i == 3){
+          let Gpa = (subjectGrade('complex_variables_and_partial_differential_equation',i) +
+                     subjectGrade('data_communication_and_networking',i) +
+                     subjectGrade('operating_systems',i) +
+                     subjectGrade('software_engineering',i) +
+                     subjectGrade('internet_programming',i) +
+                     subjectGrade('oops_cpp',i) +
+                     subjectGrade('uhv',i) +
+                     subjectGrade('mini_project_rdbms',i) +
+                     subjectGrade('oops_lab_cpp',i)) / 22
+
+    
+          if (fail){
+            Gpa = 0
+            fail = false
+          }
+          console.log(Gpa,'sem_4')
+          obj[`sem_${i+1}`] = Gpa.toFixed(2)
+        }
+
+        else  if(i == 4){
+          let Gpa = (subjectGrade('nsm',i) +
+                     subjectGrade('oomd',i) +
+                     subjectGrade('design_and_analysis_of_algorithms',i) +
+                     subjectGrade('big_data_analysis',i) +
+                     subjectGrade('formal_languages_and_automata_theory',i) +
+                     subjectGrade('professional_elective_1',i) +
+                     subjectGrade('software_system_lab',i) +
+                     subjectGrade('software_engineering_lab',i)) / 20
+
+    
+          if (fail){
+            Gpa = 0
+            fail = false
+          }
+          console.log(Gpa,'sem_5')
+          obj[`sem_${i+1}`] = Gpa.toFixed(2)
+        }
+        
+        else  if(i == 5){
+          let Gpa = (subjectGrade('iot',i) +
+                     subjectGrade('complier_design',i) +
+                     subjectGrade('deep_learning',i) +
+                     subjectGrade('cloud_computing',i) +
+                     subjectGrade('android_programming',i) +
+                     subjectGrade('professional_elective_2',i) +
+                     subjectGrade('cloud_and_data_analytics_lab',i) +
+                     subjectGrade('mini_project_android',i)) / 20
+                    
+                     console.log(subjectGrade('iot',i));
+                     console.log(subjectGrade('complier_design',i));
+                     console.log(subjectGrade('deep_learning',i));
+                     console.log(subjectGrade('cloud_computing',i));
+                     console.log(subjectGrade('android_programming',i));
+                     console.log(subjectGrade('professional_elective_2',i));
+                     console.log(subjectGrade('cloud_and_data_analytics_lab',i));
+                     console.log(subjectGrade('mini_project_android',i));
+
+    
+          if (fail){
+            Gpa = 0
+            fail = false
+          }
+          console.log(Gpa,'sem_6')
+          obj[`sem_${i+1}`] = Gpa.toFixed(2)
+        }
+
+        else  if(i == 6){
+          let Gpa = (subjectGrade('principles_of_management',i) +
+                     subjectGrade('data_security_and_cryptography',i) +
+                     subjectGrade('computer_graphics_and_visual_computing',i) +
+                     subjectGrade('professional_elective_3',i) +
+                     subjectGrade('open_elective_1',i) +
+                     subjectGrade('computer_graphics_lab',i) +
+                     subjectGrade('mini_project_multimedia',i) +
+                     subjectGrade('project_phase_1',i) +
+                     subjectGrade('industrial_internship',i) +
+                     subjectGrade('entreprenuership_development',i)) / 20
+
+          if (fail){
+            Gpa = 0
+            fail = false
+          }
+          console.log(Gpa,'sem_7')
+          obj[`sem_${i+1}`] = Gpa.toFixed(2)
+        }
+
+        else  if(i == 7){
+          let Gpa = (subjectGrade('financial_management_and_E_banking',i) +
+                     subjectGrade('professional_elective_4',i) +
+                     subjectGrade('professional_elective_5',i) +
+                     subjectGrade('open_elective_2',i) +
+                     subjectGrade('seminar',i) +
+                     subjectGrade('project_phase_2',i) +
+                     subjectGrade('comprehensive_viva_voce',i)) / 20
+
+                     
+
+          if (fail){
+            Gpa = 0
+            fail = false
+          }
+          console.log(Gpa,'sem_8')
+          obj[`sem_${i+1}`] = Gpa.toFixed(2)
+        }
+
       }
     
 
     
 
-  console.log(semGpa,'semGpa')
-  console.log(semGpa,'semGpa');
+  // console.log(semGpa,'semGpa')
+  // console.log(semGpa,'semGpa');
 
  
 
@@ -163,7 +277,7 @@ const Semesters = (reg_num) => {
 
   // console.log('semGpa',obj);
 
-
+  console.log(allData,'********************8');
 
   return (
     <div >
@@ -172,12 +286,14 @@ const Semesters = (reg_num) => {
         <h3>{registration_number}</h3>
         <h3 className={styles.h3} >CLICK ON ANY SEMESTER TO GET DETAILS</h3>
 
-
-
         <div className={styles.boxy}>
-              {details.map((data,i) =><div key={i}>
-                < SemCard semester={data.semester} attendance={data.attendance} gpa = {data.gpa}  />
-              </div> )}
+          {details.map((data, i) => (
+            <div key={i}>
+                <a>
+                  <SemCard semester={data.semester} attendance={data.attendance} gpa={data.gpa} />
+                </a>
+            </div>
+          ))}
         </div>
         
 

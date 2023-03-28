@@ -379,7 +379,7 @@ export default async function handler(req, res) {
     )
 
     try {
-      const newUser_sem_7 = await prisma.sem_7_attendance.create({
+      const newUser_sem_8 = await prisma.sem_8_attendance.create({
         data: {
           registration_number,
           year,
@@ -395,7 +395,7 @@ export default async function handler(req, res) {
           attendance 
         },
       });
-      res.status(201).json(newUser_sem_7);
+      res.status(201).json(newUser_sem_8);
     } catch (error) {
       console.error(error);
       res.status(500).json({ error: 'Unable to create user' });

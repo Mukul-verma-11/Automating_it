@@ -14,7 +14,7 @@ const SemCard = ({attendance,semester,gpa}) => {
           
         {/* <div className={styles.sem_container}> */}
               
-            <Link href={ `/semester/sem-${sem}`} className={styles.asd} >
+            <Link href={ `sem-${sem}`} className={styles.asd} >
             <div className={styles.sem_card} >
                 <h2 className={styles.h2} >SEMESTER {sem} </h2>
                 <hr />
