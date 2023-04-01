@@ -17,16 +17,16 @@ const Semesters = (reg_num) => {
     const obj = {}
     setRegNum(reg_num)
 
-    const res = axios.post('./api/getStudentAttendance',{'registration_number':reg_num})
-    .then(res => (setAttendance(res.data) , obj['ATTENDANCE'] = res.data,setName(res.data[0].name)))
+    // const res = axios.post('./api/getStudentAttendance',{'registration_number':reg_num})
+    // .then(res => (setAttendance(res.data) , obj['ATTENDANCE'] = res.data,setName(res.data[0].name)))
     
 
-    const internalMarks = axios.post('./api/getInternalMarks',{'registration_number':reg_num})
-    .then(resp => (setInternalMarks(resp.data), obj['INTERNAL_MARKS'] = resp.data))
+    // const internalMarks = axios.post('./api/getInternalMarks',{'registration_number':reg_num})
+    // .then(resp => (setInternalMarks(resp.data), obj['INTERNAL_MARKS'] = resp.data))
 
 
-    const semesterMarks = axios.post('./api/getSemesterMarks',{'registration_number':reg_num})
-    .then(respp => (setSemesterMarks(respp.data), obj['EXTERNAL_MARKS'] = respp.data,setAllData(obj)))
+    // const semesterMarks = axios.post('./api/getSemesterMarks',{'registration_number':reg_num})
+    // .then(respp => (setSemesterMarks(respp.data), obj['EXTERNAL_MARKS'] = respp.data,setAllData(obj)))
 
   },[])
 

@@ -46,9 +46,10 @@
 
 
 .submit_form{
-    width: 400px;
-    letter-spacing: 2px;
+    width: 80%;
 
+    letter-spacing: 2px;
+    height: 40px;
     margin: 30px;
     background-color: #3D1766;
     color: whitesmoke;
@@ -56,5 +57,14 @@
     padding: 8px;
     font-weight: bold;
     border: none;
-    border-radius: 2px;
+    border-radius: 9px;
+}
+
+.btnDiv{
+    width: 100%;
+    /* border: 2px solid blue; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px;
 }

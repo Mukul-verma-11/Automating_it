@@ -1,9 +1,23 @@
 import Link from 'next/link';
 import styles from '../../styles/NavBar.module.css'
-import { deleteCookie } from 'cookies-next';
+import { deleteCookie, getCookies } from 'cookies-next';
 import { useRouter } from 'next/router'
+import { useEffect,useState } from 'react';
+import axios from 'axios';
 
-const NavBar = ({name,reg_num}) => {
+const NavBar = () => {
+
+  const [name,setName] = useState('')
+  const [registration_number,setRegNum] = useState('')
+
+  useEffect( () => {
+    const cookies =  getCookies()
+    const reg_num = cookies.registration_number
+    setRegNum(reg_num)
+
+    // axios.post('./api/getStudentAttendance',{'registration_number':reg_num})
+    // .then(res => (setName(res.data[0].name)))
+  },[])
 
 
   const router = useRouter()
@@ -11,6 +25,8 @@ const NavBar = ({name,reg_num}) => {
   const handleLogout = () => {
     deleteCookie('registration_number');
     router.push('/')
+
+   
   }
 
   return (

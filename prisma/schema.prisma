@@ -521,3 +521,27 @@ model admin_login{
   userId String
   password String
 }
+
+model user_profile{
+  id Int @id @default(autoincrement())
+  name String
+  admission String
+  branch String
+  registration_number String @unique
+  yearOfAdmission String
+  catRank String
+  religion String
+  age_dob DateTime
+  caste String
+  phoneNumber String
+  email String
+  blood_group String
+  fatherOccupation String
+  fatherName String
+  fatherMobileNumber String
+  fatherEmail String
+  permanentAddress String
+  currentAddress String
+  status String
+  image  String
+}

@@ -298,7 +298,6 @@ const Semester1 = () => {
 
           <div className={styless.detials}>
               <p className={styless.p} >GPA : {gpa}</p>
-              <p className={styless.p} >Attendance : 82</p>
           </div>
 
         <br /><br /><br /><br /><br />
