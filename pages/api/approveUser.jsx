@@ -11,7 +11,7 @@ export default async function handler(req, res) {
 
   try {
     const updatedUser = await prisma.user_profile.update({
-      where: { registration_number: '20419059' },
+      where: { registration_number: data.reg_numm },
       data: { status: 'APPROVED' }
     })
     

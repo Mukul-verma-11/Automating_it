@@ -1,6 +1,9 @@
+import { useEffect,useState } from "react";
 import styles from "../../styles/ProfileView.module.css";
-
+import axios from 'axios'
+import { getCookies } from "cookies-next";
 const ProfileView = ({
+  condo_left,
   name,
   photo,
   registration_number,
@@ -18,6 +21,27 @@ const ProfileView = ({
   fatherEmail,
   yearOfAdmission
 }) => {
+
+  
+
+  useEffect(() => {
+
+    const cookies = getCookies();
+    const reg_num = cookies.registration_number;
+
+    const fetchData = async () => {
+      try {
+        const res = await axios.get("../api/getCondonationDetails");
+        setCondoData(res.data.filter(d => d.registration_number = reg_num)[0].condonation_remaining);
+        console.log(res.data.filter(d => d.registration_number = reg_num));
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchData();
+
+  }, []);
+
   return (
     <div className={styles.container}>
       <div className={styles.box}>
@@ -32,6 +56,7 @@ const ProfileView = ({
             <p>{registration_number}</p>
             <p>{phoneNumber}</p>
             <p>{email}</p>
+            <p>{ condo_left? <p>Condonation left : {condo_left} </p> : <p></p> } </p>
           </div>
 
         </div>

@@ -25,10 +25,7 @@ export async function getServerSideProps(context) {
       };
 
     }
-
     // const reg_num = getCookie(cookie)
-    console.log(cookie,'================');
-
     return{
       props:{
         cookie

@@ -2,8 +2,9 @@ import styles from "../../styles/profileForm.module.css";
 import { useState, useEffect } from "react";
 import { getCookies } from "cookies-next";
 import axios from "axios";
-import { toast } from "react-nextjs-toast";
-import { useRouter } from 'next/router'
+import { useRouter } from "next/router";
+import { ToastContainer, toast } from "react-toastify";
+
 const ProfileForm = () => {
   const [name, setName] = useState("");
   const [admission, setAdmission] = useState("");
@@ -42,7 +43,21 @@ const ProfileForm = () => {
       }}
     ) 
     .catch(err => console.log(err))
+    
 
+  }, []);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get("../api/getCondonationDetails");
+        setCondoData(res.data);
+        console.log(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchData();
   }, []);
 
   const handleSubmit = async () => {
@@ -98,23 +113,30 @@ const ProfileForm = () => {
     if (obj.phoneNumber.length > 0) {
       axios
       .post("../api/addUserProfile", obj)
-      .then((res) => (console.log(res, "*************")
-      ,toast('SUCCESSFULLY SUBMITTED')
-      ,router.reload(e)
-      
+      .then((res) => (
+        console.log(res),
+      alert('YOUR APPLICATION IS SUBMITTED'),
+        setTimeout(() => {
+          router.reload();
+        }, 2000)
       ) )
       .catch((err) => console.log(err));
+
+      axios.post('../api/addCondonation',obj).then(res => console.log(res)).catch(err => console.log(err,'poppppp'))
+
     };
     console.log(imageUrl,'url-------------------->');
     })
     .catch(err => console.log(err))
 
     
+
+    
   }
 
   return (
     <div className={styles.profile_form}>
-      <h2>STUDENT INFORMATION FORM</h2>
+      <h2>STUDENT INFORMATION FORM</h2><ToastContainer />
 
       {
         status === 'NOT-APPROVED' ? 
@@ -395,8 +417,10 @@ const ProfileForm = () => {
         </div>
       </form>
         :
-        'YOUR FORM IS PENDING'
+        <div style={{display:'flex',height:'400px',justifyContent:'center',alignItems:'center'}} > <h1>YOUR APPLICATION IS PENDING</h1> </div>
+        
       }
+
 
     
     </div>

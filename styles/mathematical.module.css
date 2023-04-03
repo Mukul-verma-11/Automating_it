@@ -1,0 +1,69 @@
+.box{
+    height: 500px;
+    /* border: 2px solid green; */
+    justify-content: center;
+    align-items: center;
+    flex-direction:column;
+    display: block;
+}
+
+.inputBox{
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid green; */
+    display: flex;
+    margin:10px;
+    height:400px;
+    
+}
+.lowerdiv{
+    /* border: 2px solid black; */
+    /* height:800px; */
+    display: flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.inside{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    padding:8px;
+    flex-direction:column;
+}
+
+.child{
+    color: #3D1766;
+    margin: 18px;
+}
+
+.points{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction:column;
+    margin-right: 20px;
+    margin-left: -20px;
+
+}
+
+.reg{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -50px;
+}
+
+.subjectsBtn{
+    margin: 5px;
+    background-color: #3D1766;
+    color: whitesmoke;
+    cursor: pointer;
+    padding: 8px;
+    width: 30%;
+    font-weight: bold;
+    border: none;
+    font-family: 'Lato', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+    letter-spacing: 3px;
+}

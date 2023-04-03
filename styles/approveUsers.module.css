@@ -1,0 +1,29 @@
+.btns{
+ /* border: 2px solid black;    */
+ height:30px;
+ display:flex;
+ justify-content: center;
+ align-items:center;
+ margin-bottom:10px;
+}
+
+.approveBtn,.rejectBtn{
+    width:300px;
+    height:40px;
+    font-size:20px;
+    padding:2px;
+    justify-content:center;
+    display:flex;
+    align-items:center;
+    margin:10px;
+    background-color:#FC2947;
+    color:white;
+    border-radius:12px;
+    cursor:pointer;
+    border:none;
+}
+
+.approveBtn{
+    background-color: #B6E388;
+    color:black;
+}

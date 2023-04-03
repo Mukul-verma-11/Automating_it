@@ -20,7 +20,7 @@ const SemCard = ({attendance,semester,gpa}) => {
                 <hr />
                 <div className={styles.sem_detail}>
                     <p>Attendance : {att}%</p> 
-                    <p>GPA : {gpa}</p> 
+                    {/* <p>GPA : {gpa}</p>  */}
                     {/* <p>Subjects : 6</p>  */}
                 </div>
               </div>

@@ -14,19 +14,26 @@ const Semesters = (reg_num) => {
   useEffect( () => {
     const cookies =  getCookies()
     const reg_num = cookies.registration_number
-    const obj = {}
+    var obj = {}
     setRegNum(reg_num)
 
-    // const res = axios.post('./api/getStudentAttendance',{'registration_number':reg_num})
-    // .then(res => (setAttendance(res.data) , obj['ATTENDANCE'] = res.data,setName(res.data[0].name)))
+    const res = axios.post('./api/getStudentAttendance',{'registration_number':reg_num})
+    .then(res => {
+      try{
+        setAttendance(res.data) , 
+        obj['ATTENDANCE'] = res.data,setName(res.data[0].name)
+      }catch {
+        console.log('attendance error ')
+      }})
+      
     
 
-    // const internalMarks = axios.post('./api/getInternalMarks',{'registration_number':reg_num})
-    // .then(resp => (setInternalMarks(resp.data), obj['INTERNAL_MARKS'] = resp.data))
+    const internalMarks = axios.post('./api/getInternalMarks',{'registration_number':reg_num})
+    .then(resp => (setInternalMarks(resp.data), obj['INTERNAL_MARKS'] = resp.data))
 
 
-    // const semesterMarks = axios.post('./api/getSemesterMarks',{'registration_number':reg_num})
-    // .then(respp => (setSemesterMarks(respp.data), obj['EXTERNAL_MARKS'] = respp.data,setAllData(obj)))
+    const semesterMarks = axios.post('./api/getSemesterMarks',{'registration_number':reg_num})
+    .then(respp => (setSemesterMarks(respp.data), obj['EXTERNAL_MARKS'] = respp.data,setAllData(obj)))
 
   },[])
 
@@ -117,6 +124,16 @@ const Semesters = (reg_num) => {
                      subjectGrade('basic_electronics_engineering',i) +
                      subjectGrade('electrical_engineering_workshop',i) +
                      subjectGrade('computer_programming_laboratory',i)) / 20
+console.log('00000000000000000000000000000000000000000000000000000000000000000');
+                     console.log(
+                      subjectGrade('computer_programming',i),
+                      subjectGrade('engineering_chemistry',i) ,
+                     subjectGrade('engineering_graphics',i) ,
+                     subjectGrade('basic_electrical_engineering',i) ,
+                     subjectGrade('environmental_studies',i) ,
+                     subjectGrade('basic_electronics_engineering',i) ,
+                     subjectGrade('electrical_engineering_workshop',i)
+                     );
     
           if (fail){
             Gpa = 0
@@ -283,8 +300,7 @@ const Semesters = (reg_num) => {
     <div >
           <NavBar reg_num = {registration_number} name={name} />
         <div className={styles.semesters_box} >
-        <h3 style={{margin:'5px'}} >{registration_number}</h3>
-        <h3 className={styles.h3} >CLICK ON ANY SEMESTER TO GET DETAILS</h3>
+        <h3 className={styles.h3} >CLICK ON SEMESTER TO GET DETAILS</h3>
 
         <div className={styles.boxy}>
           {details.map((data, i) => (

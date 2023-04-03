@@ -5,9 +5,12 @@ import { useRouter } from 'next/router'
 import { useEffect,useState } from 'react';
 import axios from 'axios';
 
-const NavBar = () => {
+const NavBar = ({Sname}) => {
 
   const [name,setName] = useState('')
+  if(name){
+    setName(Sname)
+  }
   const [registration_number,setRegNum] = useState('')
 
   useEffect( () => {
@@ -38,7 +41,8 @@ const NavBar = () => {
 
         <div className={styles.right_content} >
               <div className='contents' >
-                  <span   className={styles.content} >{name} </span>
+                  <Link href=''  className={styles.content} >{ name? name : registration_number}</Link>
+                  <Link href='student-performance'  className={styles.content} >PERFORMANCE</Link>
                   <Link href='student-profile'  className={styles.content} >PROFILE</Link>
                   <Link href='student-semesters'  className={styles.content} >SEMESTERS</Link>
               </div>
